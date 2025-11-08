@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-rubik: "Rubik", sans-serif; 
+  --text-regular: 15px;
+  --text-3xl: 32px;
+  --text-4xl: 40px;
+  --text-5xl: 56px;
+  /* --font-weight-normal: 300;
+  --font-weight-medium: 400; */
+  --leading-4: 18px;
+  --leading-5: 21px;
+  --leading-10: 38px;
+  --leading-12: 47px;
+  --leading-16: 66px;
+
+  /* --color-*: initial; */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-navy-950: #0E1323;
+  --color-navy-900: #1C204B;
+  --color-navy-800: #33397A;
+  --color-navy-200: #BBC0FF;
+  --color-orange-300: #FF8B64;
+  --color-purple-700: #7335D2;
+  --color-purple-600: #5747EA;
+  --color-purple-500: #7078C9;
+  --color-blue-300: #55C2E6;
+  --color-pink-400: #FF5E7D;
+  --color-green-400: #4BCF82;
+  --color-yellow-300: #F1C75B;
+  --color-grey-200: #C8C8C8;
+
+  --width-20: 78px;
+}
+
+@layer components {
+  .period {
+    color: var(--color-purple-500);
+  }
+
+  [aria-pressed="true"] {
+    color: var(--color-white);
+  }
+}
