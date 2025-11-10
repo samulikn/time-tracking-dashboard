@@ -1,16 +1,13 @@
-const dailyBtn = document.getElementById("daily");
-const weeklyBtn = document.getElementById("weekly");
-const monthlyBtn = document.getElementById("monthly");
+const periodBtns = document.querySelectorAll(".period");
 const activities = ["work", "play", "study", "exercise", "social", "selfcare"];
 let dataActivity;
 
 const fetchDataActivity = async () => {
   try {
-    const response = await fetch("data.json");
+    const response = await fetch("src/data.json");
     dataActivity = await response.json();
 
     if (dataActivity) refreshDashboard();
-
   } catch (err) {
     console.log(`there was an error to load data ${err}`);
   }
@@ -59,25 +56,14 @@ function UpdateElement(elementId, text) {
   element.append(text);
 }
 
-dailyBtn.addEventListener("click", (e) => {
-  weeklyBtn.removeAttribute("aria-pressed");
-  monthlyBtn.removeAttribute("aria-pressed");
-  dailyBtn.setAttribute("aria-pressed", "true");
-  refreshDashboard();
-});
-
-weeklyBtn.addEventListener("click", (e) => {
-  dailyBtn.removeAttribute("aria-pressed");
-  monthlyBtn.removeAttribute("aria-pressed");
-  weeklyBtn.setAttribute("aria-pressed", "true");
-  refreshDashboard();
-});
-
-monthlyBtn.addEventListener("click", (e) => {
-  dailyBtn.removeAttribute("aria-pressed");
-  weeklyBtn.removeAttribute("aria-pressed");
-  monthlyBtn.setAttribute("aria-pressed", "true");
-  refreshDashboard();
+periodBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    for (const period of periodBtns) {
+      period.removeAttribute("aria-pressed");
+    }
+    e.target.setAttribute("aria-pressed", "true");
+    refreshDashboard();
+  });
 });
 
 fetchDataActivity();
