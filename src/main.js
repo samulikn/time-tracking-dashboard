@@ -24,12 +24,13 @@ function refreshDashboard() {
 
     const timeframes = activityTitle.timeframes[time]; // obj of current and previous value
 
-    let textCurrent =
-      timeframes.current in [0, 1]
+    const textCurrent =
+      timeframes.current === 0 || timeframes.current === 1
         ? `${timeframes.current}hr`
         : `${timeframes.current}hrs`;
-    let hoursPrevious = timeframes.previous in [0, 1] ? "hr" : "hrs";
 
+    const hoursPrevious =
+      timeframes.previous === 0 || timeframes.previous === 1 ? "hr" : "hrs";
     let textPrevious = "";
     switch (time) {
       case "daily":
@@ -59,7 +60,7 @@ function UpdateElement(elementId, text) {
 periodBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     for (const period of periodBtns) {
-      period.removeAttribute("aria-pressed");
+      period.setAttribute("aria-pressed", "false");
     }
     e.target.setAttribute("aria-pressed", "true");
     refreshDashboard();

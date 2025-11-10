@@ -192,14 +192,14 @@
   }
 }
 @layer utilities {
+  .\@container {
+    container-type: inline-size;
+  }
   .absolute {
     position: absolute;
   }
   .relative {
     position: relative;
-  }
-  .static {
-    position: static;
   }
   .-top-3 {
     top: calc(var(--spacing) * -3);
@@ -230,9 +230,6 @@
   }
   .grid {
     display: grid;
-  }
-  .table {
-    display: table;
   }
   .min-h-screen {
     min-height: 100vh;
@@ -363,10 +360,6 @@
   }
   .text-white {
     color: var(--color-white);
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .outline-3 {
     outline-style: var(--tw-outline-style);
