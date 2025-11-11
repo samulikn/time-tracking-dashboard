@@ -25,20 +25,21 @@
       <div
         class="@container flex items-center font-normal text-lg/5 py-6 xl:gap-5.5 xl:flex-col xl:px-8 xl:pt-7 xl:pb-8 xl:items-start">
         <button id="daily" aria-pressed="false" type="button"
-          class="period w-1/3 sm:text-end xl:text-start hover:text-white">Daily</button>
+          class="period w-1/3 sm:text-end xl:text-start hover:text-white cursor-pointer">Daily</button>
         <button id="weekly" aria-pressed="true" type="button"
-          class="period w-1/3 xl:text-start hover:text-white">Weekly</button>
+          class="period w-1/3 xl:text-start hover:text-white cursor-pointer">Weekly</button>
         <button id="monthly" aria-pressed="false" type="button"
-          class="period w-1/3 sm:text-start xl:text-start hover:text-white">Monthly</button>
+          class="period w-1/3 sm:text-start xl:text-start hover:text-white cursor-pointer">Monthly</button>
       </div>
     </section>
     <section class="mx-auto w-full grid grid-cols-1 sm:grid-cols-3 gap-6 last:mb-20 sm:last:mb-0 xl:gap-8">
-      <article class="flex flex-col bg-orange-300 rounded-2xl overflow-hidden sm:w-47 xl:w-64">
-        <figure class="relative">
+      <article
+        class="flex flex-col bg-linear-to-b from-orange-300 from-20% rounded-2xl overflow-hidden sm:w-47 xl:w-64">
+        <div class="relative">
           <img src="src/images/icon-work.svg" alt="work activity" class="absolute -top-3 right-4 z-10">
-        </figure>
+        </div>
         <div
-          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 sm:gap-4 xl:gap-6 xl:mt-11">
+          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 cursor-pointer sm:gap-4 xl:gap-6 xl:mt-11">
           <header class="flex justify-between items-center">
             <h2 class="font-medium text-lg/5">Work</h2>
             <button type="button" class="">
@@ -46,17 +47,17 @@
             </button>
           </header>
           <div class="flex justify-between sm:gap-2 items-center sm:flex-col sm:items-start">
-            <p id="work-current" class="font-light text-3xl/10 sm:text-5xl/16">32hrs</p>
-            <p id="work-previous" class="text-navy-200 text-regular/4 font-normal">Last week - 36hrs</p>
+            <p id="work-current" class="font-light text-3xl/10 sm:text-5xl/16">---</p>
+            <p id="work-previous" class="text-navy-200 text-regular/4 font-normal">Last week - </p>
           </div>
         </div>
       </article>
-      <article class="flex flex-col bg-blue-300 rounded-2xl overflow-hidden sm:w-47 xl:w-64">
-        <figure class="relative">
+      <article class="flex flex-col bg-linear-to-b from-blue-300 from-20% rounded-2xl overflow-hidden sm:w-47 xl:w-64">
+        <div class="relative">
           <img src="src/images/icon-play.svg" alt="play activity" class="absolute -top-3 right-4 z-10">
-        </figure>
+        </div>
         <div
-          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 sm:gap-4 xl:gap-6 xl:mt-11">
+          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 cursor-pointer sm:gap-4 xl:gap-6 xl:mt-11">
           <header class="flex justify-between items-center">
             <h2 class="font-medium text-lg/5">Play</h2>
             <button type="button" class="">
@@ -64,17 +65,17 @@
             </button>
           </header>
           <div class="flex justify-between sm:gap-2 items-center sm:flex-col sm:items-start">
-            <p id="play-current" class="font-light text-3xl/10 sm:text-5xl/16">10hrs</p>
-            <p id="play-previous" class="text-navy-200 text-regular/4 font-normal">Last week - 8hrs</p>
+            <p id="play-current" class="font-light text-3xl/10 sm:text-5xl/16">---</p>
+            <p id="play-previous" class="text-navy-200 text-regular/4 font-normal">Last week - </p>
           </div>
         </div>
       </article>
-      <article class="flex flex-col bg-pink-400 rounded-2xl overflow-hidden sm:w-47 xl:w-64">
-        <figure class="relative">
+      <article class="flex flex-col bg-linear-to-b from-pink-400 from-20% rounded-2xl overflow-hidden sm:w-47 xl:w-64">
+        <div class="relative">
           <img src="src/images/icon-study.svg" alt="study activity" class="absolute -top-3 right-4 z-10">
-        </figure>
+        </div>
         <div
-          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 sm:gap-4 xl:gap-6 xl:mt-11">
+          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 cursor-pointer sm:gap-4 xl:gap-6 xl:mt-11">
           <header class="flex justify-between items-center">
             <h2 class="font-medium text-lg/5">Study</h2>
             <button type="button" class="">
@@ -82,17 +83,17 @@
             </button>
           </header>
           <div class="flex justify-between sm:gap-2 items-center sm:flex-col sm:items-start">
-            <p id="study-current" class="font-light text-3xl/10 sm:text-5xl/16">4hrs</p>
-            <p id="study-previous" class="text-navy-200 text-regular/4 font-normal">Last week - 7hrs</p>
+            <p id="study-current" class="font-light text-3xl/10 sm:text-5xl/16">---</p>
+            <p id="study-previous" class="text-navy-200 text-regular/4 font-normal">Last week - </p>
           </div>
         </div>
       </article>
-      <article class="flex flex-col bg-green-400 rounded-2xl overflow-hidden sm:w-47 xl:w-64">
-        <figure class="relative">
+      <article class="flex flex-col bg-linear-to-b from-green-400 from-20% rounded-2xl overflow-hidden sm:w-47 xl:w-64">
+        <div class="relative">
           <img src="src/images/icon-exercise.svg" alt="exercise activity" class="absolute -top-3 right-4 z-10">
-        </figure>
+        </div>
         <div
-          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 sm:gap-4 xl:gap-6 xl:mt-11">
+          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 cursor-pointer sm:gap-4 xl:gap-6 xl:mt-11">
           <header class="flex justify-between items-center">
             <h2 class="font-medium text-lg/5">Exercise</h2>
             <button type="button" class="">
@@ -100,17 +101,18 @@
             </button>
           </header>
           <div class="flex justify-between sm:gap-2 items-center sm:flex-col sm:items-start">
-            <p id="exercise-current" class="font-light text-3xl/10 sm:text-5xl/16">4hrs</p>
-            <p id="exercise-previous" class="text-navy-200 text-regular/4 font-normal">Last week - 5hrs</p>
+            <p id="exercise-current" class="font-light text-3xl/10 sm:text-5xl/16">---</p>
+            <p id="exercise-previous" class="text-navy-200 text-regular/4 font-normal">Last week - </p>
           </div>
         </div>
       </article>
-      <article class="flex flex-col bg-purple-700 rounded-2xl overflow-hidden sm:w-47 xl:w-64">
-        <figure class="relative">
+      <article
+        class="flex flex-col bg-linear-to-b from-purple-700 from-20% rounded-2xl overflow-hidden sm:w-47 xl:w-64">
+        <div class="relative">
           <img src="src/images/icon-social.svg" alt="social activity" class="absolute -top-3 right-4 z-10">
-        </figure>
+        </div>
         <div
-          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 sm:gap-4 xl:gap-6 xl:mt-11">
+          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 cursor-pointer sm:gap-4 xl:gap-6 xl:mt-11">
           <header class="flex justify-between items-center">
             <h2 class="font-medium text-lg/5">Social</h2>
             <button type="button" class="">
@@ -118,17 +120,18 @@
             </button>
           </header>
           <div class="flex justify-between sm:gap-2 items-center sm:flex-col sm:items-start">
-            <p id="social-current" class="font-light text-3xl/10 sm:text-5xl/16">5hrs</p>
-            <p id="social-previous" class="text-navy-200 text-regular/4 font-normal">Last week - 10hrs</p>
+            <p id="social-current" class="font-light text-3xl/10 sm:text-5xl/16">---</p>
+            <p id="social-previous" class="text-navy-200 text-regular/4 font-normal">Last week - </p>
           </div>
         </div>
       </article>
-      <article class="flex flex-col bg-yellow-300 rounded-2xl overflow-hidden sm:w-47 xl:w-64">
-        <figure class="relative">
+      <article
+        class="flex flex-col bg-linear-to-b from-yellow-300 from-20% rounded-2xl overflow-hidden sm:w-47 xl:w-64">
+        <div class="relative">
           <img src="src/images/icon-self-care.svg" alt="self care activity" class="absolute -top-3 right-4 z-10">
-        </figure>
+        </div>
         <div
-          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 sm:gap-4 xl:gap-6 xl:mt-11">
+          class="mt-9 py-7 px-4 sm:py-6 sm:px-auto xl:p-8 bg-navy-900 rounded-2xl flex flex-col gap-2 z-20 hover:bg-navy-800 cursor-pointer sm:gap-4 xl:gap-6 xl:mt-11">
           <header class="flex justify-between items-center">
             <h2 class="font-medium text-lg/5">Self Care</h2>
             <button type="button" class="">
@@ -136,8 +139,8 @@
             </button>
           </header>
           <div class="flex justify-between sm:gap-2 items-center sm:flex-col sm:items-start">
-            <p id="selfcare-current" class="font-light text-3xl/10 sm:text-5xl/16">2hrs</p>
-            <p id="selfcare-previous" class="text-navy-200 text-regular/4 font-normal">Last week - 2hrs</p>
+            <p id="selfcare-current" class="font-light text-3xl/10 sm:text-5xl/16">---</p>
+            <p id="selfcare-previous" class="text-navy-200 text-regular/4 font-normal">Last week - </p>
           </div>
         </div>
       </article>
