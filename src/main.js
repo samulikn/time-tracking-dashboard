@@ -22,7 +22,12 @@ function refreshDashboard() {
       (i) => i.title.replace(" ", "").toLowerCase() === activity
     );
 
-    const timeframes = activityTitle.timeframes[time]; // obj of current and previous value
+    if (!activityTitle) {
+      console.log(`No data found for ${activity}`);
+      return;
+    }
+
+    const timeframes = activityTitle.timeframes[time]; // obj of current and previous values
 
     const textCurrent =
       timeframes.current === 0 || timeframes.current === 1
@@ -62,7 +67,7 @@ periodBtns.forEach((btn) => {
     for (const period of periodBtns) {
       period.setAttribute("aria-pressed", "false");
     }
-    e.target.setAttribute("aria-pressed", "true");
+    e.currentTarget.setAttribute("aria-pressed", "true");
     refreshDashboard();
   });
 });
