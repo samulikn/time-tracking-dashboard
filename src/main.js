@@ -43,7 +43,7 @@ function refreshDashboard() {
 }
 
 function generateText(time, timeframes = {}) {
-  if (Object.keys(timeframes) === 0)
+  if (Object.keys(timeframes).length === 0)
     return { current: "---", previous: "No data" };
 
   const currentHrsMeasure = getHoursMeasuring(timeframes.current);
