@@ -9,6 +9,10 @@ const fetchDataActivity = async () => {
 
     if (dataActivity) refreshDashboard();
   } catch (err) {
+    activities.forEach((activity) => {
+      updateElement(activity + "-current", "---");
+      updateElement(activity + "-previous", "No data");
+    });
     console.log(`there was an error to load data ${err}`);
   }
 };
@@ -19,57 +23,77 @@ function refreshDashboard() {
 
   activities.forEach((activity) => {
     const activityTitle = dataActivity.find(
-      (i) => i.title.replace(" ", "").toLowerCase() === activity
+      (i) => i.title.replace(/\s/g, "").toLowerCase() === activity
     );
 
     if (!activityTitle) {
+      updateElement(activity + "-current", "---");
+      updateElement(activity + "-previous", "---");
       console.log(`No data found for ${activity}`);
       return;
     }
 
     const timeframes = activityTitle.timeframes[time]; // obj of current and previous values
 
-    const textCurrent =
-      timeframes.current === 0 || timeframes.current === 1
-        ? `${timeframes.current}hr`
-        : `${timeframes.current}hrs`;
+    const text = generateText(time, timeframes);
 
-    const hoursPrevious =
-      timeframes.previous === 0 || timeframes.previous === 1 ? "hr" : "hrs";
-    let textPrevious = "";
-    switch (time) {
-      case "daily":
-        textPrevious = `Yesterday - ${timeframes.previous}${hoursPrevious}`;
-        break;
-      case "weekly":
-        textPrevious = `Last Week - ${timeframes.previous}${hoursPrevious}`;
-        break;
-      case "monthly":
-        textPrevious = `Last Month - ${timeframes.previous}${hoursPrevious}`;
-        break;
-      default:
-        textPrevious = "---hr";
-    }
-
-    UpdateElement(activity + "-current", textCurrent);
-    UpdateElement(activity + "-previous", textPrevious);
+    updateElement(activity + "-current", text.current);
+    updateElement(activity + "-previous", text.previous);
   });
 }
 
-function UpdateElement(elementId, text) {
+function generateText(time, timeframes = {}) {
+  if (Object.keys(timeframes) === 0)
+    return { current: "---", previous: "No data" };
+
+  const currentHrsMeasure = getHoursMeasuring(timeframes.current);
+  const textCurrent = `${timeframes.current}${currentHrsMeasure}`;
+
+  const previousHrsMeasure = getHoursMeasuring(timeframes.previous);
+  let textPrevious = "";
+  switch (time) {
+    case "daily":
+      textPrevious = `Yesterday - ${timeframes.previous}${previousHrsMeasure}`;
+      break;
+    case "weekly":
+      textPrevious = `Last Week - ${timeframes.previous}${previousHrsMeasure}`;
+      break;
+    case "monthly":
+      textPrevious = `Last Month - ${timeframes.previous}${previousHrsMeasure}`;
+      break;
+    default:
+      textPrevious = "---hr";
+  }
+
+  return { current: textCurrent, previous: textPrevious };
+}
+
+function getHoursMeasuring(value) {
+  const hrs = value === 0 || value === 1 ? "hr" : "hrs";
+  return hrs;
+}
+
+function updateElement(elementId, text) {
   const element = document.getElementById(elementId);
+  if (!element) {
+    console.log(`Element with id ${elementId} not found.`);
+    return;
+  }
   element.textContent = "";
   element.append(text);
 }
 
+function handleClickBtn(e) {
+  for (const period of periodBtns) {
+    period.setAttribute("aria-pressed", "false");
+  }
+
+  e.currentTarget.setAttribute("aria-pressed", "true");
+  refreshDashboard();
+}
+
 periodBtns.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    for (const period of periodBtns) {
-      period.setAttribute("aria-pressed", "false");
-    }
-    e.currentTarget.setAttribute("aria-pressed", "true");
-    refreshDashboard();
-  });
+  btn.addEventListener("click", handleClickBtn);
 });
 
 fetchDataActivity();
